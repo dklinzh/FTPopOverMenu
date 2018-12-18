@@ -61,7 +61,9 @@ typedef void (^FTPopOverMenuDismissBlock)(void);
 @property (nonatomic, assign) CGFloat shadowOffsetX;
 @property (nonatomic, assign) CGFloat shadowOffsetY;
 @property (nonatomic, strong) UIColor *coverBackgroundColor;
-
+@property (nonatomic, assign) CGFloat arrowDirectionUpDownBoundary; // Defaults to half of the screen height.
+@property (nonatomic, assign) CGFloat arrowWidth;
+@property (nonatomic, assign) CGFloat arrowHeight;
 
 /**
  *  defaultConfiguration

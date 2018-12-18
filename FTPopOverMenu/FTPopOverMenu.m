@@ -112,6 +112,9 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         self.shadowOffsetX = FTDefaultShadowOffsetX;
         self.shadowOffsetY = FTDefaultShadowOffsetY;
         self.coverBackgroundColor = FTDefaultBackgroundColor;
+        self.arrowDirectionUpDownBoundary = KSCREEN_HEIGHT/2;
+        self.arrowWidth = FTDefaultMenuArrowWidth;
+        self.arrowHeight = FTDefaultMenuArrowHeight;
     }
     return self;
 }
@@ -327,11 +330,11 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 }
 
 - (CGFloat)menuArrowWidth {
-    return self.config.allowRoundedArrow ? FTDefaultMenuArrowWidth_R : FTDefaultMenuArrowWidth;
+    return self.config.allowRoundedArrow ? FTDefaultMenuArrowWidth_R : self.config.arrowWidth;
 }
 
 - (CGFloat)menuArrowHeight {
-    return self.config.allowRoundedArrow ? FTDefaultMenuArrowHeight_R : FTDefaultMenuArrowHeight;
+    return self.config.allowRoundedArrow ? FTDefaultMenuArrowHeight_R : self.config.arrowHeight;
 }
 
 - (void)showWithFrame:(CGRect )frame
@@ -667,11 +670,11 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 }
 
 - (CGFloat)menuArrowWidth {
-    return self.config.allowRoundedArrow ? FTDefaultMenuArrowWidth_R : FTDefaultMenuArrowWidth;
+    return self.config.allowRoundedArrow ? FTDefaultMenuArrowWidth_R : self.config.arrowWidth;
 }
 
 - (CGFloat)menuArrowHeight {
-    return self.config.allowRoundedArrow ? FTDefaultMenuArrowHeight_R : FTDefaultMenuArrowHeight;
+    return self.config.allowRoundedArrow ? FTDefaultMenuArrowHeight_R : self.config.arrowHeight;
 }
 
 - (void)onChangeStatusBarOrientationNotification:(NSNotification *)notification {
@@ -731,7 +734,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
     BOOL shouldAutoScroll = NO;
     FTPopOverMenuArrowDirection arrowDirection;
 
-    if (senderRect.origin.y + senderRect.size.height/2  < KSCREEN_HEIGHT/2) {
+    if (senderRect.origin.y + senderRect.size.height/2  < self.config.arrowDirectionUpDownBoundary) {
         arrowDirection = FTPopOverMenuArrowDirectionUp;
         menuArrowPoint.y = 0;
     }else{
