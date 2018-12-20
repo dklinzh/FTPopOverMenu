@@ -489,6 +489,8 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
     }else{
         menuCell.separatorInset = self.config.separatorInset;
     }
+    menuCell.preservesSuperviewLayoutMargins = NO;
+    menuCell.layoutMargins = UIEdgeInsetsZero;
     return menuCell;
 }
 
