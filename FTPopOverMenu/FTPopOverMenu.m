@@ -105,6 +105,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         self.animationDuration = FTDefaultAnimationDuration;
         self.selectedTextColor = FTDefaultSelectedTextColor;
         self.selectedCellBackgroundColor = FTDefaultCellSelectedBackgroundColor;
+        self.allowsMenuSelection = true;
         self.separatorColor = FTDefaultSeparatorColor;
         self.shadowColor = FTDefaultShadowColor;
         self.shadowRadius = FTDefaultShadowRadius;
@@ -322,6 +323,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         _menuTableView.layer.cornerRadius = FTDefaultMenuCornerRadius;
         _menuTableView.scrollEnabled = NO;
         _menuTableView.clipsToBounds = YES;
+        _menuTableView.allowsSelection = self.config.allowsMenuSelection;
         _menuTableView.delegate = self;
         _menuTableView.dataSource = self;
         [self addSubview:_menuTableView];

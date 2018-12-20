@@ -54,6 +54,7 @@ typedef void (^FTPopOverMenuDismissBlock)(void);
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 @property (nonatomic, strong) UIColor *selectedTextColor;
 @property (nonatomic, strong) UIColor *selectedCellBackgroundColor;
+@property (nonatomic, assign) BOOL allowsMenuSelection; // Defaults to true.
 @property (nonatomic, strong) UIColor *separatorColor;
 @property (nonatomic, strong) UIColor *shadowColor;
 @property (nonatomic, assign) CGFloat shadowOpacity;
